@@ -8,7 +8,7 @@ CREATE TABLE
     `create_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `book_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `total_book_count` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-    `score/comment_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `score_comment_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `total_score_count` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
     `total_coment_count` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
     `total_score` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
