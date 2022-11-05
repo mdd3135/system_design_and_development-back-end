@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,8 @@ public class UserController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @PostMapping("/register")
-    public Map<String, Object> register(@RequestParam Map<String, String> mp){
+    @PostMapping("/user_register")
+    private Map<String, Object> user_register(@RequestParam Map<String, String> mp){
         String sql = "select * from user_table where user_id='" + mp.get("user_id") + "'";
         if(jdbcTemplate.queryForList(sql).size() != 0){
             return Map.of("code", 1);
@@ -50,8 +51,8 @@ public class UserController {
         return Map.of("code", 0);
     }
 
-    @GetMapping("/query_user")
-    private Map<String, Object> query_user(@RequestParam Map<String, String>mp){
+    @GetMapping("/user_query")
+    public Map<String, Object> user_query(@RequestParam Map<String, String>mp){
         int page = -1;
         String sql = "select * from user_table ";
         if(mp.containsKey("page")){
@@ -80,9 +81,45 @@ public class UserController {
         return Map.of("code", 0, "size", size, "content", ls);
     }
 
-    private int min(int a, int b){
+    @PostMapping("user_login")
+    private Map<String, Object> user_login(@RequestParam Map<String, String> mp){
+        String sql = "select * from user_table where user_id='" + mp.get("user_id") + "' and user_password='" + mp.get("user_password") + "'";
+        List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
+        if(ls.size() != 0){
+            String now_stamp = String.valueOf(System.currentTimeMillis());
+            String expiration_time = String.valueOf(Long.valueOf(now_stamp) + (long)(7L * 24L * 3600L * 1000L));
+            sql = "update user_table set session_id = '" + now_stamp + "', expiration_time ='" + expiration_time + "' where user_id = '" + mp.get("user_id") + "'";
+            jdbcTemplate.update(sql);
+            return Map.of("code", 0, "session_id", now_stamp);
+        }
+        return Map.of("code", 2);
+    }
+
+    @PostMapping("user_modify")
+    public Map<String, Object> user_modify(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
+        String sql = "select * from user_table where session_id='" + session_id + "'";
+        List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
+        if(ls.size() == 0 || ls.get(0).get("expiration_time").toString().compareTo(""+System.currentTimeMillis()) < 0){
+            return Map.of("code", 3);
+        }
+        int flag = 0;
+        sql = "update user_table set ";
+        for(String key : mp.keySet()){
+            if(flag == 0){
+                sql = sql + key + "='" + mp.get(key) + "'";
+                flag = 1;
+            }
+            else{
+                sql += "," + key + "='" + mp.get(key) + "'";
+            }
+        }
+        sql += " where session_id = '" + session_id + "'";
+        jdbcTemplate.update(sql);
+        return Map.of("code", 0);
+    }
+
+    public static int min(int a, int b){
         if(a < b) return a;
         else return b;
     }
-
 }
