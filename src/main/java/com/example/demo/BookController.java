@@ -20,7 +20,6 @@ public class BookController {
     private Map<String, Object> book_add(@RequestParam Map<String, String> mp){
         String sql = "insert into all_book_table(";
         int flag = 0;
-
         for(String key : mp.keySet()){
             if(flag == 0){
                 sql += key;
@@ -30,11 +29,8 @@ public class BookController {
                 sql += "," + key;
             }
         }
-
         sql += ") values (";
-
         flag = 0;
-
         for(String key : mp.keySet()){
             if(flag == 0){
                 sql += "'" + mp.get(key) + "'";
@@ -46,7 +42,6 @@ public class BookController {
         }
         sql += ")";
         jdbcTemplate.update(sql);
-
         return Map.of("code", 0);
     }
 
@@ -72,17 +67,14 @@ public class BookController {
                 }
             }
         }
-
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
         int size = ls.size();
-
         if(size == 0){
             return Map.of("code", 4);
         }
         if(page != -1){
             ls = ls.subList(page * 10 - 10, UserController.min(page * 10, size));
-        }
-        
+        }  
         return Map.of("code", 0, "size", size, "content", ls);
     }
 
@@ -92,7 +84,6 @@ public class BookController {
         if(jdbcTemplate.queryForList(sql).size() == 0){
             return Map.of("code", 5);  // 要删除的内容不存在
         }
-
         sql = "delete from all_book_table where book_id=" + mp.get("book_id");
         jdbcTemplate.update(sql);
 
@@ -120,11 +111,8 @@ public class BookController {
             }
             
         }
-
         sql += " where book_id =" + book_id;
         jdbcTemplate.update(sql);
         return Map.of("code", 0);
     }
-
-
 }

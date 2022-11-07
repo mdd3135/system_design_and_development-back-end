@@ -1,0 +1,15 @@
+"filename", "language", "SQL", "Java", "comment", "blank", "total"
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/all_book_table.sql", "SQL", -6, 0, 0, 0, -6
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/all_movie_table.sql", "SQL", -6, 0, 0, 0, -6
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/book_reaction_table.sql", "SQL", -4, 0, 0, 0, -4
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/booklist_table.sql", "SQL", -4, 0, 0, 0, -4
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/comment_table.sql", "SQL", 10, 0, 0, 0, 10
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/movie_reaction_table.sql", "SQL", -4, 0, 0, 0, -4
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/movielist_table.sql", "SQL", -4, 0, 0, 0, -4
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/score_comment_table.sql", "SQL", -9, 0, 0, 0, -9
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/user_table.sql", "SQL", -6, 0, 0, 0, -6
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/BookController.java", "Java", 0, 107, 0, 12, 119
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/CommentController.java", "Java", 0, 49, 0, 2, 51
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovieController.java", "Java", 0, -1, -1, 0, -2
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/UserController.java", "Java", 0, 28, 0, 1, 29
+"Total", "-", -33, 183, -1, 15, 164
