@@ -52,7 +52,36 @@ public class UserController {
     }
 
     @GetMapping("/user_query")
-    public Map<String, Object> user_query(@RequestParam Map<String, String>mp){
+    private Map<String, Object> user_query(@RequestParam Map<String, String>mp){
+        int page = -1;
+        String sql = "select * from user_table ";
+        if(mp.containsKey("page")){
+            page = Integer.parseInt(mp.get("page"));
+        }
+        if(mp.containsKey("user_id")){
+            sql += "where user_id='" + mp.get("user_id") + "'";
+        }
+        if(mp.containsKey("user_name")){
+            sql += "where user_name like '%" + mp.get("user_name") + "%'";
+        }
+        List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
+        int size = ls.size();
+        if(size == 0){
+            return Map.of("code", 4);
+        }
+        if(page != -1){
+            ls = ls.subList(page*10 - 10, min(page*10, size));
+        }
+        for(int i = 0; i < ls.size(); i++){
+            Map<String, Object> tmp = ls.get(i);
+            tmp.remove("user_password");
+            tmp.remove("session_id");
+            tmp.remove("expiration_time");
+        }
+        return Map.of("code", 0, "size", size, "content", ls);
+    }
+
+    public Map<String, Object> user_query(Map<String, String>mp, JdbcTemplate jdbcTemplate){
         int page = -1;
         String sql = "select * from user_table ";
         if(mp.containsKey("page")){
@@ -96,7 +125,7 @@ public class UserController {
     }
 
     @PostMapping("user_modify")
-    public Map<String, Object> user_modify(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
+    private Map<String, Object> user_modify(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
         String sql = "select * from user_table where session_id='" + session_id + "'";
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
         if(ls.size() == 0 || ls.get(0).get("expiration_time").toString().compareTo(""+System.currentTimeMillis()) < 0){

@@ -45,11 +45,12 @@ public class MovieController {
     }
 
     @GetMapping("/movie_query")
-    public Map<String, Object> movie_query(@RequestParam Map<String, String> mp){
+    private Map<String, Object> movie_query(@RequestParam Map<String, String> mp){
         int page = -1;
         String sql = "select * from all_movie_table ";
         if(mp.containsKey("page")){
             page = Integer.parseInt(mp.get("page"));
+            mp.remove("page"); 
         }
         if(mp.containsKey("movie_id")){
             sql += "where movie_id=" + mp.get("movie_id");
@@ -85,12 +86,11 @@ public class MovieController {
         }
         sql = "delete from all_movie_table where movie_id=" + mp.get("movie_id");
         jdbcTemplate.update(sql);
-        //TODO 删除相关影单中的该电影，删除封面图片，删除评分评论
         return Map.of("code", 0);
     }
 
     @PostMapping("/movie_modify")
-    public Map<String, Object> movie_modify(@RequestParam Map<String, String> mp){
+    private  Map<String, Object> movie_modify(@RequestParam Map<String, String> mp){
         String movie_id = mp.get("movie_id");
         mp.remove("movie_id");
         String sql = "select * from all_movie_table where movie_id=" + movie_id;
