@@ -7,7 +7,7 @@ CREATE TABLE
     `user_picture` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
     `user_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `create_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `session_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `session_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
     `expiration_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
     `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '普通',
     PRIMARY KEY (`user_id`)
