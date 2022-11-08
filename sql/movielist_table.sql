@@ -4,9 +4,9 @@ CREATE TABLE
     `user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `movielist_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `movielist_picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
+    `movielist_picture` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
     `create_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `movie_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
-    `collector_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `movie_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '[]',
+    `collector_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '[]',
     PRIMARY KEY (`movielist_id`)
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci

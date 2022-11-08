@@ -7,7 +7,7 @@ CREATE TABLE
     `publisher` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `publication_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `book_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `book_picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `book_picture` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
     `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -91,7 +91,7 @@ public class CommentController {
     private Map<String, Object> comment_delete(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
         String sql = "select * from user_table where session_id=" + session_id;
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
-        if(ls.size() == 0){
+        if(ls.size() == 0 || ls.get(0).get("expiration_time").toString().compareTo(""+System.currentTimeMillis()) < 0){
             return Map.of("code", 3);
         }
         String op_user_id = ls.get(0).get("user_id").toString();
