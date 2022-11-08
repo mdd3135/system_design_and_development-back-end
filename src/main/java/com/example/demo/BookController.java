@@ -91,7 +91,7 @@ public class BookController {
     }    
 
     @PostMapping("/book_modify")
-    public Map<String, Object> book_modify(@RequestParam Map<String, String> mp){
+    private Map<String, Object> book_modify(@RequestParam Map<String, String> mp){
         String book_id = mp.get("book_id");
         mp.remove("book_id");
         String sql = "select * from all_book_table where book_id=" + book_id;

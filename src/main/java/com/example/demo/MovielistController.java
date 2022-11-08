@@ -129,5 +129,10 @@ public class MovielistController {
         return Map.of("code", 0, "size", size, "content", ls);
     }
 
-    
+    @PostMapping("/movielist_modify")
+    private Map<String, Object> movielist_modify(@RequestParam Map<String, String> mp){
+        String movielist_id = mp.get("movielist_id");
+        mp.remove("movielist_id");
+        return Map.of("code", 0);
+    }
 }
