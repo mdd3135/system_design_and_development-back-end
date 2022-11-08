@@ -133,6 +133,23 @@ public class MovielistController {
     private Map<String, Object> movielist_modify(@RequestParam Map<String, String> mp){
         String movielist_id = mp.get("movielist_id");
         mp.remove("movielist_id");
+        String sql = "select * from movielist_table where movielist_id=" + movielist_id;
+        if(jdbcTemplate.queryForList(sql).size() == 0){
+            return Map.of("code", 6);
+        }
+        int flag = 0;
+        sql = "update movielist_modify set ";
+        for(String key : mp.keySet()){
+            if(flag == 0){
+                sql += key + "='" + mp.get(key) + "'";
+                flag = 1;
+            }
+            else{
+                sql += "," + key + "='" + mp.get(key) + "'";
+            }
+        }
+        sql += " where movielist_id =" + movielist_id;
+        jdbcTemplate.update(sql);
         return Map.of("code", 0);
     }
 }
