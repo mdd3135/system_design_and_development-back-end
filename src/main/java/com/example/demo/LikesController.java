@@ -19,7 +19,7 @@ public class LikesController {
     private JdbcTemplate jdbcTemplate;
 
     @PostMapping("/likes_add")
-    private Map<String, Object> comment_add(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
+    private Map<String, Object> likes_add(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
         String sql = "select * from user_table where session_id='" + session_id + "'";
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
         if(ls.size() == 0 || ls.get(0).get("expiration_time").toString().compareTo(""+System.currentTimeMillis()) < 0){
@@ -59,7 +59,7 @@ public class LikesController {
     }
 
     @GetMapping("/likes_query")
-    private Map<String, Object> comment_query(@RequestParam Map<String, String> mp){
+    private Map<String, Object> likes_query(@RequestParam Map<String, String> mp){
         int page = -1;
         String sql = "select * from likes_table ";
         if(mp.containsKey("page")){
@@ -88,7 +88,7 @@ public class LikesController {
     }
 
     @PostMapping("/likes_delete")
-    private Map<String, Object> comment_delete(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
+    private Map<String, Object> likes_delete(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
         String sql = "select * from user_table where session_id=" + session_id;
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
         if(ls.size() == 0 || ls.get(0).get("expiration_time").toString().compareTo(""+System.currentTimeMillis()) < 0){
