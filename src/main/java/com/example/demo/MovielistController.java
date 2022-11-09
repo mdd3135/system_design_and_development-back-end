@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.mysql.cj.xdevapi.JsonArray;
 
 @RestController
 public class MovielistController {
