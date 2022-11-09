@@ -4,6 +4,6 @@ CREATE TABLE
     `recommend_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `movie_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     `book_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `create_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
     PRIMARY KEY (`id`)
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci

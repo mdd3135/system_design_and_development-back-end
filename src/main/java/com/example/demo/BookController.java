@@ -46,7 +46,39 @@ public class BookController {
     }
 
     @GetMapping("/book_query")
-    public Map<String, Object> book_query(@RequestParam Map<String, String> mp){
+    private Map<String, Object> book_query(@RequestParam Map<String, String> mp){
+        int page = -1;
+        String sql = "select * from all_book_table ";
+        if(mp.containsKey("page")){
+            page = Integer.parseInt(mp.get("page"));
+        }
+        if(mp.containsKey("book_id")){
+            sql += "where book_id=" + mp.get("book_id");
+        }
+        else{
+            int flag = 0;
+            for(String key : mp.keySet()){
+                if(flag == 0){
+                    sql += "where " + key + " like '%" + mp.get(key) + "%' ";
+                    flag = 1;
+                }
+                else{
+                    sql += "and " + key + " like '%" + mp.get(key) + "%' ";
+                }
+            }
+        }
+        List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
+        int size = ls.size();
+        if(size == 0){
+            return Map.of("code", 4);
+        }
+        if(page != -1){
+            ls = ls.subList(page * 10 - 10, UserController.min(page * 10, size));
+        }  
+        return Map.of("code", 0, "size", size, "content", ls);
+    }
+
+    public Map<String, Object> book_query(Map<String, String> mp, JdbcTemplate jdbcTemplate){
         int page = -1;
         String sql = "select * from all_book_table ";
         if(mp.containsKey("page")){
