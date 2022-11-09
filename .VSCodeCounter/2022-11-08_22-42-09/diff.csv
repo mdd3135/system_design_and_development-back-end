@@ -1,0 +1,6 @@
+"filename", "language", "SQL", "Java", "XML", "comment", "blank", "total"
+"/home/mdd/文档/系统设计与开发/团队项目/demo/pom.xml", "XML", 0, 0, 5, 0, 0, 5
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/likes_table.sql", "SQL", 9, 0, 0, 0, 1, 10
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/LikesController.java", "Java", 0, 104, 0, 0, 7, 111
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovielistController.java", "Java", 0, 146, 0, 1, 9, 156
+"Total", "-", 9, 250, 5, 1, 17, 282
