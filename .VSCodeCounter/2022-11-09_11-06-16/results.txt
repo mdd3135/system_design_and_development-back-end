@@ -1,0 +1,74 @@
+Date : 2022-11-09 11:06:16
+Directory : /home/mdd/文档/系统设计与开发/团队项目/demo
+Total : 30 files,  1390 codes, 53 comments, 139 blanks, all 1582 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| Java            |         12 |      1,074 |          2 |         91 |      1,167 |
+| SQL             |         13 |        148 |          0 |          1 |        149 |
+| Batch           |          1 |        102 |         51 |         36 |        189 |
+| XML             |          1 |         55 |          0 |          6 |         61 |
+| Java Properties |          2 |          7 |          0 |          2 |          9 |
+| Markdown        |          1 |          4 |          0 |          3 |          7 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                       | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                          |         30 |      1,390 |         53 |        139 |      1,582 |
+| .mvn                                                                                       |          1 |          2 |          0 |          1 |          3 |
+| .mvn/wrapper                                                                               |          1 |          2 |          0 |          1 |          3 |
+| sql                                                                                        |         13 |        148 |          0 |          1 |        149 |
+| src                                                                                        |         13 |      1,079 |          2 |         92 |      1,173 |
+| src/main                                                                                   |         12 |      1,070 |          2 |         87 |      1,159 |
+| src/main/java                                                                              |         11 |      1,065 |          2 |         86 |      1,153 |
+| src/main/java/com                                                                          |         11 |      1,065 |          2 |         86 |      1,153 |
+| src/main/java/com/example                                                                  |         11 |      1,065 |          2 |         86 |      1,153 |
+| src/main/java/com/example/demo                                                             |         11 |      1,065 |          2 |         86 |      1,153 |
+| src/main/resources                                                                         |          1 |          5 |          0 |          1 |          6 |
+| src/test                                                                                   |          1 |          9 |          0 |          5 |         14 |
+| src/test/java                                                                              |          1 |          9 |          0 |          5 |         14 |
+| src/test/java/com                                                                          |          1 |          9 |          0 |          5 |         14 |
+| src/test/java/com/example                                                                  |          1 |          9 |          0 |          5 |         14 |
+| src/test/java/com/example/demo                                                             |          1 |          9 |          0 |          5 |         14 |
++--------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                   | language        | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| /home/mdd/文档/系统设计与开发/团队项目/demo/.mvn/wrapper/maven-wrapper.properties                       | Java Properties |          2 |          0 |          1 |          3 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/README.md                                                   | Markdown        |          4 |          0 |          3 |          7 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/mvnw.cmd                                                    | Batch           |        102 |         51 |         36 |        189 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/pom.xml                                                     | XML             |         55 |          0 |          6 |         61 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/all_book_table.sql                                      | SQL             |         15 |          0 |          0 |         15 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/all_movie_table.sql                                     | SQL             |         16 |          0 |          0 |         16 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/book_reaction_table.sql                                 | SQL             |         11 |          0 |          0 |         11 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/booklist_table.sql                                      | SQL             |         12 |          0 |          0 |         12 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/comment_table.sql                                       | SQL             |         10 |          0 |          0 |         10 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/experience_table.sql                                    | SQL             |          9 |          0 |          0 |          9 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/likes_table.sql                                         | SQL             |          9 |          0 |          1 |         10 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/movie_reaction_table.sql                                | SQL             |         11 |          0 |          0 |         11 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/movielist_table.sql                                     | SQL             |         12 |          0 |          0 |         12 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/reading_status_table.sql                                | SQL             |         11 |          0 |          0 |         11 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/recommend_table.sql                                     | SQL             |          9 |          0 |          0 |          9 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/user_table.sql                                          | SQL             |         14 |          0 |          0 |         14 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/sql/watching_status_table.sql                               | SQL             |          9 |          0 |          0 |          9 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/BookController.java          | Java            |        107 |          0 |         12 |        119 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/BooklistController.java      | Java            |        145 |          1 |          9 |        155 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/CommentController.java       | Java            |        104 |          0 |          7 |        111 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/DemoApplication.java         | Java            |          9 |          0 |          5 |         14 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/FileController.java          | Java            |         48 |          0 |          7 |         55 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/HelloTest.java               | Java            |         11 |          0 |          3 |         14 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/LikesController.java         | Java            |        104 |          0 |          7 |        111 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovieController.java         | Java            |        108 |          0 |          9 |        117 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovieReactionController.java | Java            |        139 |          0 |          8 |        147 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovielistController.java     | Java            |        145 |          1 |          9 |        155 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/UserController.java          | Java            |        145 |          0 |         10 |        155 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/main/resources/application.properties                   | Java Properties |          5 |          0 |          1 |          6 |
+| /home/mdd/文档/系统设计与开发/团队项目/demo/src/test/java/com/example/demo/DemoApplicationTests.java    | Java            |          9 |          0 |          5 |         14 |
+| Total                                                                                      |                 |      1,390 |         53 |        139 |      1,582 |
++--------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
