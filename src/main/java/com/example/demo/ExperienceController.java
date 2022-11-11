@@ -102,5 +102,46 @@ public class ExperienceController {
         jdbcTemplate.update(sql);
         return Map.of("code", 0);
     }
+
+    @PostMapping("/experience_modify")
+    private Map<String, Object> experience_modify(@RequestParam Map<String, String> mp, @RequestHeader("Authorization") String session_id){
+        String sql = "select * from user_table where session_id=" + session_id;
+        List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
+        if(ls.size() == 0 || ls.get(0).get("expiration_time").toString().compareTo(""+System.currentTimeMillis()) < 0){
+            return Map.of("code", 3);
+        }
+        String op_user_id = ls.get(0).get("user_id").toString();
+        sql = "select * from experience_table where experience_id=" + mp.get("experience_id");
+        ls = jdbcTemplate.queryForList(sql);
+        if(ls.size() == 0){
+            return Map.of("code", 6);
+        }
+        else if(ls.get(0).get("user_id").equals(op_user_id) == false){
+            return Map.of("code", 7);
+        }
+
+        String experience_id = mp.get("experience_id");
+        mp.remove("experience_id");
+        sql = "select * from experience_table where experience_id=" + experience_id;
+
+        if(jdbcTemplate.queryForList(sql).size() == 0){
+            return Map.of("code", 6);  // 要修改的内容不存在
+        }
+        int flag = 0;
+        sql = "update experience_table set ";
+        for(String key : mp.keySet()){
+            if(flag == 0){
+                sql += key + "='" + mp.get(key) +"'";
+                flag = 1;
+            }
+            else{
+                sql += "," + key + "='" + mp.get(key) + "'";
+            }
+            
+        }
+        sql += " where experience_id =" + experience_id;
+        jdbcTemplate.update(sql);
+        return Map.of("code", 0);
+    }
 }
 
