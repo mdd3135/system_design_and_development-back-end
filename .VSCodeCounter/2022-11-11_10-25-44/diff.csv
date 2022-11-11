@@ -1,0 +1,9 @@
+"filename", "language", "SQL", "Java", "comment", "blank", "total"
+"/home/mdd/文档/系统设计与开发/团队项目/demo/sql/watching_status_table.sql", "SQL", 1, 0, 0, 0, 1
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/BookController.java", "Java", 0, 31, 0, 1, 32
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/BookReactionController.java", "Java", 0, 139, 0, 8, 147
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/ExperienceController.java", "Java", 0, 98, 0, 9, 107
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovieController.java", "Java", 0, 32, 0, 1, 33
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/ReadingStatusController.java", "Java", 0, 99, 0, 7, 106
+"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/RecommendController.java", "Java", 0, 88, 0, 5, 93
+"Total", "-", 1, 487, 0, 31, 519

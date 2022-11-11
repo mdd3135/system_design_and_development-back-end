@@ -1,9 +1,0 @@
-"filename", "language", "Java Properties", "Java", "comment", "blank", "total"
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/DemoApplication.java", "Java", 0, 9, 0, 5, 14
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/FileController.java", "Java", 0, 48, 0, 7, 55
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/HelloTest.java", "Java", 0, 11, 0, 3, 14
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/MovieController.java", "Java", 0, 107, 1, 9, 117
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/java/com/example/demo/UserController.java", "Java", 0, 117, 0, 9, 126
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/main/resources/application.properties", "Java Properties", 5, 0, 0, 1, 6
-"/home/mdd/文档/系统设计与开发/团队项目/demo/src/test/java/com/example/demo/DemoApplicationTests.java", "Java", 0, 9, 0, 5, 14
-"Total", "-", 5, 301, 1, 39, 346
