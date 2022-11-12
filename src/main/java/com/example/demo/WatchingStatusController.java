@@ -92,14 +92,6 @@ public class WatchingStatusController {
         if(size == 0){
             return Map.of("code", 4);
         }
-        for(int i = 0; i < ls.size(); i++){
-            String[] status_time_array = new Gson().fromJson(ls.get(i).get("status_time").toString(), String[].class);
-            List<String> status_time_ls = Arrays.asList(status_time_array);
-            ls.get(i).put("status_time", status_time_ls);
-        }
         return Map.of("code", 0, "size", size, "content", ls);
     }
-
- 
-    
 }
