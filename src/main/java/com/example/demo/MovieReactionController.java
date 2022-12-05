@@ -87,17 +87,46 @@ public class MovieReactionController {
             page = Integer.parseInt(mp.get("page"));
             mp.remove("page");
         }
+        int flag = 0;
         if(mp.containsKey("movie_reaction_id")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
             sql += "where movie_reaction_id=" + mp.get("movie_reaction_id");
+            flag = 1;
         }
-        else if(mp.containsKey("user_id")){
-            sql += "where user_id='" + mp.get("user_id") + "'";
+        if(mp.containsKey("user_id")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            sql += "user_id='" + mp.get("user_id") + "'";
+            flag = 1;
         }
-        else if(mp.containsKey("movie_id")){
-            sql += "where movie_id='" + mp.get("movie_id") + "'";
+        if(mp.containsKey("movie_id")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            sql += "movie_id='" + mp.get("movie_id") + "'";
+            flag = 1;
         }
-        else if(mp.containsKey("title")){
-            sql += "where title like '%" + mp.get("title") + "%'";
+        if(mp.containsKey("title")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            sql += "title like '%" + mp.get("title") + "%'";
+            flag = 1;
         }
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
         int size = ls.size();

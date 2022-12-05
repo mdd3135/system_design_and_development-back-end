@@ -91,10 +91,10 @@ public class MovielistController {
             mp.remove("page");
         }
         if(mp.containsKey("movielist_id")){
-            sql += "where movielist_id" + mp.get("movielist_id");
+            sql += "where movielist_id=" + mp.get("movielist_id");
         }
         else if(mp.containsKey("user_id")){
-            sql += "where user_id'" + mp.get("user_id") + "'";
+            sql += "where user_id='" + mp.get("user_id") + "'";
         }
         else{
             int flag = 0;
@@ -137,7 +137,7 @@ public class MovielistController {
             return Map.of("code", 6);
         }
         int flag = 0;
-        sql = "update movielist_modify set ";
+        sql = "update movielist_table set ";
         for(String key : mp.keySet()){
             if(flag == 0){
                 sql += key + "='" + mp.get(key) + "'";

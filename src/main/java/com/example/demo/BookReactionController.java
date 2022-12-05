@@ -87,17 +87,46 @@ public class BookReactionController {
             page = Integer.parseInt(mp.get("page"));
             mp.remove("page");
         }
+        int flag = 0;
         if(mp.containsKey("book_reaction_id")){
-            sql += "where book_reaction_id=" + mp.get("book_reaction_id");
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            sql += "book_reaction_id=" + mp.get("book_reaction_id");
+            flag = 1;
         }
-        else if(mp.containsKey("user_id")){
-            sql += "where user_id='" + mp.get("user_id") + "'";
+        if(mp.containsKey("user_id")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            sql += "user_id='" + mp.get("user_id") + "'";
+            flag = 1;
         }
-        else if(mp.containsKey("book_id")){
-            sql += "where book_id='" + mp.get("book_id") + "'";
+        if(mp.containsKey("book_id")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            flag = 1;
+            sql += "book_id='" + mp.get("book_id") + "'";
         }
-        else if(mp.containsKey("title")){
-            sql += "where title like '%" + mp.get("title") + "%'";
+        if(mp.containsKey("title")){
+            if(flag == 0){
+                sql += " where ";
+            }
+            else if(flag == 1){
+                sql += " and ";
+            }
+            flag = 1;
+            sql += "title like '%" + mp.get("title") + "%'";
         }
         List<Map<String, Object>> ls = jdbcTemplate.queryForList(sql);
         int size = ls.size();

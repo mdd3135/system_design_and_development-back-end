@@ -91,10 +91,10 @@ public class BooklistController {
             mp.remove("page");
         }
         if(mp.containsKey("booklist_id")){
-            sql += "where booklist_id" + mp.get("booklist_id");
+            sql += "where booklist_id=" + mp.get("booklist_id");
         }
         else if(mp.containsKey("user_id")){
-            sql += "where user_id'" + mp.get("user_id") + "'";
+            sql += "where user_id='" + mp.get("user_id") + "'";
         }
         else{
             int flag = 0;
@@ -137,7 +137,7 @@ public class BooklistController {
             return Map.of("code", 6);
         }
         int flag = 0;
-        sql = "update booklist_modify set ";
+        sql = "update booklist_table set ";
         for(String key : mp.keySet()){
             if(flag == 0){
                 sql += key + "='" + mp.get(key) + "'";
